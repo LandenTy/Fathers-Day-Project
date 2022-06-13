@@ -1,0 +1,29 @@
+using UnityEngine;
+using System.Collections;
+
+public class openTrackMenu : MonoBehaviour {
+
+	public GameObject trackMenu;
+	private bool isOpen;
+
+	void Start()
+	{
+		trackMenu.SetActive (false);
+		isOpen = false;
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			isOpen = !isOpen;
+			MenuHandler (isOpen);
+		}
+	}
+
+	public void MenuHandler(bool windowOpen)
+	{
+		trackMenu.SetActive (isOpen);
+	}
+
+}
