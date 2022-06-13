@@ -24,20 +24,23 @@ public class createTrack : MonoBehaviour {
 			// ADDS A STRAIGHT TRACK
 			isSpawned = true;
 			Invoke ("WaitSeconds", 0.5f);
-			isSpawned = false;
 		}
 	}
 
+	// Get Around Function for Invoke Method. (I'm Lazy)
 	public void WaitSeconds()
 	{
 		addTrack (trackPieces [0]);
 	}
 
+	// Adds track with passed in parameter
 	public void addTrack(GameObject trackPeice)
 	{
 		Instantiate (trackPeice, spawnPos, quaternion);
 
 		float updatedX = spawnPos.x + xOffset;
 		spawnPos.x = updatedX;
+
+		isSpawned = false;
 	}
 }
